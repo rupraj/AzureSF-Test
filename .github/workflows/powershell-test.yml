@@ -27,5 +27,6 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a Powershell Script
+        shell: pwsh
         run: |
           .\installmode.ps1
