@@ -6,6 +6,6 @@ Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-insta
 Write-Host "---- Finished Packaging project ------"
 
 Write-Host "List directory contents"
-ls ~/.dotnet/tools
+ls "C:\windows"
 
-msbuild .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release"
+#msbuild .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release"
