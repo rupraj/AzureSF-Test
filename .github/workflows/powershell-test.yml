@@ -40,11 +40,11 @@ jobs:
       #  run: dotnet build .\MySFWebApp8.sln
       
       - name: Check VS
-        run: ls "C:\Program Files (x86)"
+        run: ls "C:\Program Files (x86)\Microsoft Visual Studio"
       
-      - name: Build package
-        run: Install-Package Microsoft.Build -RequiredVersion 17.2.0
+      #- name: Build package
+      #  run: Install-Package Microsoft.Build -RequiredVersion 17.2.0
       
-      - name: Check msbuild
-        run: msbuild
+      #- name: Check msbuild
+      #  run: msbuild
         
