@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -43,9 +43,9 @@ jobs:
       #  run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
       - name: Build package
-        env: |
-          DIR_Path:${env:ProgramFiles(x86)}+"\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MsBuild.exe"
-        run: $DIR_Path .\MySFWebApp8.sfproj /t:package /p:Configuration=Release /p:Platform=AnyCPU
+        env:  
+            OUTPUT_SUFFIX: 	${Env:ProgramFiles(x86)}+"\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MsBuild.exe"
+        run: $OUTPUT_SUFFIX .\MySFWebApp8.sfproj /t:package /p:Configuration=Release /p:Platform=AnyCPU
       
       #- name: Check msbuild
       #  run: msbuild
