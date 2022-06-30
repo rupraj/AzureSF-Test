@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: |
-            2.1.x
+            #2.1.x
             3.1.x
       - run: dotnet restore .\MySFWebApp8.sln
 
@@ -36,5 +36,5 @@ jobs:
       - name: Install ServiceFabric Powershell Module
         run: ./installmod.ps1
         
-      - name: Build ServiceFabric Application
-        run: dotnet build .\MySFWebApp8.sln
+      #- name: Build ServiceFabric Application
+      #  run: dotnet build .\MySFWebApp8.sln
