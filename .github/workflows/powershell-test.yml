@@ -40,7 +40,7 @@ jobs:
       #  run: dotnet build .\MySFWebApp8.sln
       
       - name: Check VS
-        run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise"
+        run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
       #- name: Build package
       #  run: Install-Package Microsoft.Build -RequiredVersion 17.2.0
