@@ -43,7 +43,9 @@ jobs:
       #  run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
       - name: Build package
-        run: ${env:ProgramFiles(x86)}+"\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MsBuild.exe" .\MySFWebApp8.sfproj /t:package /p:Configuration=Release /p:Platform=AnyCPU
+        env: |
+          DIR_Path:${env:ProgramFiles(x86)}+"\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MsBuild.exe"
+        run: $DIR_Path .\MySFWebApp8.sfproj /t:package /p:Configuration=Release /p:Platform=AnyCPU
       
       #- name: Check msbuild
       #  run: msbuild
