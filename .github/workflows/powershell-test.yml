@@ -42,9 +42,9 @@ jobs:
       - name: Check VS
         run: ls "C:\Program Files (x86)"
       
-      #- name: Build package
-      #  run: Install-Package Microsoft.Build --version 14.3.0
+      - name: Build package
+        run: Install-Package Microsoft.Build -RequiredVersion 17.2.0
       
-      #- name: Check msbuild
-      #  run: msbuild
+      - name: Check msbuild
+        run: msbuild
         
