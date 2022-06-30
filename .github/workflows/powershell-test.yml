@@ -43,7 +43,7 @@ jobs:
       #  run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
       - name: Build package
-        run: '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MsBuild.exe" .\\MySFWebApp8.sfproj /t:package /p:Configuration=Release /p:Platform=AnyCPU'
+        run: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MsBuild.exe .\MySFWebApp8.sfproj /t:package /p:Configuration=Release /p:Platform=AnyCPU"'
       
       #- name: Check msbuild
       #  run: msbuild
