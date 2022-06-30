@@ -28,7 +28,6 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: |
-            #2.1.x
             3.1.x
       - run: ls "C:\Windows\Microsoft.NET\Framework64"
       #- run: dotnet restore .\MySFWebApp8.sln
