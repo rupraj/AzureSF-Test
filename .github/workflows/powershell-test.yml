@@ -45,7 +45,7 @@ jobs:
       - name: Build package
         env:  
             OUTPUT_SUFFIX: 	${Env:ProgramFiles(x86)}+"\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MsBuild.exe"
-        run: $OUTPUT_SUFFIX .\MySFWebApp8.sfproj /t:package /p:Configuration=Release /p:Platform=AnyCPU
+        run: Write-Host $OUTPUT_SUFFIX
       
       #- name: Check msbuild
       #  run: msbuild
