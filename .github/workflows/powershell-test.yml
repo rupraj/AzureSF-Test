@@ -30,14 +30,14 @@ jobs:
           dotnet-version: |
             3.1.x
       #- run: ls "C:\Windows\Microsoft.NET\Framework64"
-      - run: dotnet restore .\MySFWebApp8.sln
+      #- run: dotnet restore .\MySFWebApp8.sln
 
       # Runs a set of commands using the runners shell
-      - name: Install ServiceFabric Powershell Module
-        run: ./installmod.ps1
+      #- name: Install ServiceFabric Powershell Module
+      #  run: ./installmod.ps1
         
-      - name: Build ServiceFabric Application
-        run: dotnet build .\MySFWebApp8.sln
+      #- name: Build ServiceFabric Application
+      #  run: dotnet build .\MySFWebApp8.sln
       
       - name: Build package
-        run: C:\Windows\Microsoft.NET\Framework64\v3.0\msbuild.exe .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release" /p:Platform=AnyCPU
+        run: ls C:\Windows\Microsoft.NET\Framework64\v3.0
