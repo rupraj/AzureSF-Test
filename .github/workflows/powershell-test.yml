@@ -33,8 +33,8 @@ jobs:
       - run: dotnet restore .\MySFWebApp8.sln
 
       # Runs a set of commands using the runners shell
-      - name: Install ServiceFabric Powershell Module
-        run: ./installmod.ps1
+      #- name: Install ServiceFabric Powershell Module
+      #  run: ./installmod.ps1
         
       #- name: Build ServiceFabric Application
       #  run: dotnet build .\MySFWebApp8.sln
