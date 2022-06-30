@@ -39,9 +39,12 @@ jobs:
       #- name: Build ServiceFabric Application
       #  run: dotnet build .\MySFWebApp8.sln
       
-      - name: Build package
-        run: Install-Package Microsoft.Build --version 14.3.0
+      - name: Check VS
+        run: ls "C:\Program Files (x86)"
       
-      - name: Check msbuild
-        run: msbuild
+      #- name: Build package
+      #  run: Install-Package Microsoft.Build --version 14.3.0
+      
+      #- name: Check msbuild
+      #  run: msbuild
         
