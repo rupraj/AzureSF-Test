@@ -1,11 +1,4 @@
 Write-Host "Packaging ServiceFabric project"
-Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1';
-./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.26' -Runtime 'dotnet';
-#msbuild .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release"
-
-Write-Host "---- Finished Packaging project ------"
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe .\MySFWebApp8.sln /t:restore
-
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release" /p:Platform=AnyCPU
-
-ls .
+$restofpath = "\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+$msbuildexe = Join-Path -Path "c:\program files (x86)" -childpath $restofpath
+&$msbuildexe .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release" /p:Platform=AnyCPU
