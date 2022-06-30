@@ -40,5 +40,8 @@ jobs:
       #  run: dotnet build .\MySFWebApp8.sln
       
       - name: Build package
+        run: Install-Package Microsoft.Build -Version 14.3.0
+      
+      - name: Check msbuild
         run: msbuild
         
