@@ -36,5 +36,5 @@ jobs:
       - name: Install ServiceFabric Powershell Module
         run: ./installmod.ps1
         
-      - name: Package ServiceFabric Application
-        run: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release" /p:Platform=AnyCPU
+      - name: Build ServiceFabric Application
+        run: dotnet build .\MySFWebApp8.sln
