@@ -40,8 +40,5 @@ jobs:
       #  run: dotnet build .\MySFWebApp8.sln
       
       - name: Build package
-        run: |
-          ls C:\Windows\Microsoft.NET\Framework64\v3.0
-          ls C:\Windows\Microsoft.NET\Framework64\v3.5
-          ls C:\Windows\Microsoft.NET\Framework64\v4.0.30319
+        run: C:\Windows\Microsoft.NET\Framework64\v3.5\msbuild.exe .\MySFWebApp8.sfproj /t:package /p:"Configuration=Release" /p:Platform=AnyCPU
         
