@@ -16,6 +16,9 @@ foreach($application in $envObj.$env.applicationNames){
 
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
 
+    ls .\pkg\$application"pkg"
+    ls .\pkg\$application"pkg"\Code
+    ls .\pkg\$application"pkg"\Config
 
 }
 
