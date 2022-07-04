@@ -31,6 +31,7 @@ jobs:
             3.1.x
       #- run: ls "C:\Windows\Microsoft.NET\Framework64"
       - run: dotnet restore .\MySFWebApp8.sln
+      - run: ./deploy/build_deploy.ps1
 
       # Runs a set of commands using the runners shell
       #- name: Install ServiceFabric Powershell Module
@@ -42,10 +43,10 @@ jobs:
       #- name: Check VS
       #  run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
-      - name: Build package
-        run: |
-          ./packageSF.ps1
-          ls .
+      #- name: Build package
+      #  run: |
+      #    ./packageSF.ps1
+      #    ls .
       
       #- name: Check msbuild
       #  run: msbuild
