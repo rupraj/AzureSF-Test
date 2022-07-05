@@ -38,7 +38,6 @@ jobs:
       - name: Install ServiceFabric Powershell Module
         run: |
               ./installmod.ps1
-              Import-Module ServiceFabric -UseWindowsPowerShell
               Get-Command -Module ServiceFabric
         
       #- name: Build ServiceFabric Application
