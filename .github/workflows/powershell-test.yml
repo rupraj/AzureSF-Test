@@ -68,7 +68,8 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: SF Artifacts
-          path: ./pkg
+          path: ./artifacts
+          retention-period: 1
       
       #- name: Deploy ServiceFabric Application
       #  run: ./deploy/build_deploy.ps1
