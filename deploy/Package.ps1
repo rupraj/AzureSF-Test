@@ -15,12 +15,8 @@ foreach($application in $envObj.$env.applicationNames){
     Copy-Item .\$application\PackageRoot\Config\Settings.xml -Destination .\pkg\$application"pkg"\Config
 
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
-
-    ls .\pkg\$application"pkg"
-    ls .\pkg\$application"pkg"\Code
-    ls .\pkg\$application"pkg"\Config
-
 }
 
+New-Item .\artifacts -ItemType Directory
 
-
+Compress-Archive -Path .\pkg -DestinationPath .\artifacts
