@@ -38,7 +38,7 @@ jobs:
       - name: Install ServiceFabric Powershell Module
         run: |
                 New-Item .\installer -ItemType Directory
-                Invoke-WebRequest "http://download.microsoft.com/download/3/2/1/3217654F-6882-4CEA-BD51-49287EDECE9B/MicrosoftServiceFabricSDK.2.8.232.msi" -OutFile .\installer\ServiceFabricSDK.msi"
+                Invoke-WebRequest "http://download.microsoft.com/download/3/2/1/3217654F-6882-4CEA-BD51-49287EDECE9B/MicrosoftServiceFabricSDK.2.8.232.msi" -OutFile .\installer\ServiceFabricSDK.msi
                 ls .\installer
                 #./installmod.ps1
                 #Connect-ServiceFabricCluster -ConnectionEndpoint mysfwebapp8.eastus.cloudapp.azure.com:19000 `
