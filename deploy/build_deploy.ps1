@@ -32,7 +32,7 @@ Try{
                     Register-ServiceFabricApplicationType -ApplicationPathInImageStore $application"_"$xmlServiceManifest.ServiceManifest.Version
                     Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore $application"_"$xmlServiceManifest.ServiceManifest.Version -ImageStoreConnectionString fabric:ImageStore
                     Start-ServiceFabricApplicationUpgrade -ApplicationName "fabric:/"$application -ApplicationTypeVersion $xmlAppManifest.ApplicationManifest.ApplicationTypeVersion -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
-                {
+                }
             }else
             {
                 Copy-ServiceFabricApplicationPackage $packagepath -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore $application"_"$xmlServiceManifest.ServiceManifest.Version -ShowProgress -ShowProgressIntervalMilliseconds 500
