@@ -27,6 +27,7 @@ Try{
                 {
                     Write-Host "Applications are of the same version"
                 } else
+                {
                     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $packagePath -ApplicationPackagePathInImageStore $application"_"$xmlServiceManifest.ServiceManifest.Version
                     Register-ServiceFabricApplicationType -ApplicationPathInImageStore $application"_"$xmlServiceManifest.ServiceManifest.Version
                     Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore $application"_"$xmlServiceManifest.ServiceManifest.Version -ImageStoreConnectionString fabric:ImageStore
