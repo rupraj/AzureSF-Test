@@ -30,7 +30,7 @@ jobs:
           dotnet-version: |
             3.1.x
       #- run: ls "C:\Windows\Microsoft.NET\Framework64"
-      - run: dotnet restore .\MySFWebApp8.sln
+      #- run: dotnet restore .\MySFWebApp8.sln
       
       #- run: ./deploy/build_deploy.ps1
 
@@ -38,7 +38,11 @@ jobs:
       - name: Install ServiceFabric Powershell Module
         run: |
               ./installmod.ps1
-              Get-Command -Module ServiceFabric
+              Connect-ServiceFabricCluster -ConnectionEndpoint mysfwebapp8.eastus.cloudapp.azure.com:19000 `
+              -KeepAliveIntervalInSec 10 `
+              -X509Credential -ServerCertThumbprint 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
+              -FindType FindByThumbprint -FindValue 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
+              -StoreLocation CurrentUser -StoreName My
         
       #- name: Build ServiceFabric Application
       #  run: dotnet build .\MySFWebApp8.sln
