@@ -37,19 +37,20 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install ServiceFabric Powershell Module
         run: |
-                Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-                choco install MicrosoftAzure-ServiceFabric-CoreSDK --source webpi -y
+                Install-Module -Name Az.ServiceFabric -RequiredVersion 1.0.0
+                #Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+                #choco install MicrosoftAzure-ServiceFabric-CoreSDK --source webpi -y
                 #dotnet add package Microsoft.ServiceFabric --version 9.0.1028
                 #choco install service-fabric-sdk
                 #New-Item .\installer -ItemType Directory
                 #Invoke-WebRequest "https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK" -OutFile .\installer\ServiceFabricSDK.exe -UseBasicParsing; Start-Process -FilePath .\installer\ServiceFabricSDK.exe -ArgumentList '/i', '/passive', '/quiet', '/norestart', '/qn' -NoNewWindow -Wait;
                 #ls .\installer
                 #./installmod.ps1
-                #Connect-ServiceFabricCluster -ConnectionEndpoint mysfwebapp8.eastus.cloudapp.azure.com:19000 `
-                #-KeepAliveIntervalInSec 10 `
-                #-X509Credential -ServerCertThumbprint 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
-                #-FindType FindByThumbprint -FindValue 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
-                #-StoreLocation CurrentUser -StoreName My
+                Connect-ServiceFabricCluster -ConnectionEndpoint mysfwebapp8.eastus.cloudapp.azure.com:19000 `
+                -KeepAliveIntervalInSec 10 `
+                -X509Credential -ServerCertThumbprint 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
+                -FindType FindByThumbprint -FindValue 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
+                -StoreLocation CurrentUser -StoreName My
         
       #- name: Build ServiceFabric Application
       #  run: dotnet build .\MySFWebApp8.sln
