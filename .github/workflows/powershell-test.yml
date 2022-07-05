@@ -37,13 +37,15 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install ServiceFabric Powershell Module
         run: |
-                Invoke-WebRequest "http://download.microsoft.com/download/3/2/1/3217654F-6882-4CEA-BD51-49287EDECE9B/MicrosoftServiceFabricSDK.2.8.232.msi" -OutFile "C:\ServiceFabricSDK.msi" -UseBasicParsing; \ Start-Process "msiexec" -ArgumentList '/i', 'C:\ServiceFabricSDK.msi', '/passive', '/quiet', '/norestart', '/qn' -NoNewWindow -Wait; \ rm "C:\ServiceFabricSDK.msi"
-                ./installmod.ps1
-                Connect-ServiceFabricCluster -ConnectionEndpoint mysfwebapp8.eastus.cloudapp.azure.com:19000 `
-                -KeepAliveIntervalInSec 10 `
-                -X509Credential -ServerCertThumbprint 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
-                -FindType FindByThumbprint -FindValue 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
-                -StoreLocation CurrentUser -StoreName My
+                New-Item .\installer -ItemType Directory
+                Invoke-WebRequest "http://download.microsoft.com/download/3/2/1/3217654F-6882-4CEA-BD51-49287EDECE9B/MicrosoftServiceFabricSDK.2.8.232.msi" -OutFile .\installer\ServiceFabricSDK.msi"
+                ls .\installer
+                #./installmod.ps1
+                #Connect-ServiceFabricCluster -ConnectionEndpoint mysfwebapp8.eastus.cloudapp.azure.com:19000 `
+                #-KeepAliveIntervalInSec 10 `
+                #-X509Credential -ServerCertThumbprint 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
+                #-FindType FindByThumbprint -FindValue 6B5DA229ED923914B618D3B682EFD82447FC8D5F `
+                #-StoreLocation CurrentUser -StoreName My
         
       #- name: Build ServiceFabric Application
       #  run: dotnet build .\MySFWebApp8.sln
