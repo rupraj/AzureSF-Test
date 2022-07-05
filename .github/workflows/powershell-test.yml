@@ -39,8 +39,8 @@ jobs:
         run: |
                 #choco install service-fabric-sdk
                 New-Item .\installer -ItemType Directory
-                Invoke-WebRequest "https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK" -OutFile .\installer\ServiceFabricSDK.msi -UseBasicParsing; Start-Process "msiexec" -ArgumentList '/i', .\installer\ServiceFabricSDK.msi, '/passive', '/quiet', '/norestart', '/qn' -NoNewWindow -Wait;
-                #ls .\installer
+                Invoke-WebRequest "https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK" -OutFile .\installer\ServiceFabricSDK.exe -UseBasicParsing; Start-Process -ArgumentList '/i', .\installer\ServiceFabricSDK.exe, '/passive', '/quiet', '/norestart', '/qn' -NoNewWindow -Wait;
+                ls .\installer
                 #./installmod.ps1
                 Connect-ServiceFabricCluster -ConnectionEndpoint mysfwebapp8.eastus.cloudapp.azure.com:19000 `
                 -KeepAliveIntervalInSec 10 `
