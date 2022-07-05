@@ -38,7 +38,7 @@ jobs:
       - name: Install ServiceFabric Powershell Module
         run: |
             ./installmod.ps1
-            ls $ENV:ProgramFiles
+            ls $ENV:ProgramFiles\Microsoft SDK
                 #Set-PSRepository PSGallery -InstallationPolicy Trusted
                 #Install-Module -Name Az.ServiceFabric -RequiredVersion 1.0.0
                 #Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
