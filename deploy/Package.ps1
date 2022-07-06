@@ -3,11 +3,12 @@ param (
     [Parameter(Mandatory = $true)]
     [string] $env_name
 )
-$env_running= $env_name
+$env_running= ConvertTo-SecureString -String $env_name -AsPlainText -Force; 
+Write-Host "Env Obj"  $env_running
 
 $envObj = Get-Content -Path .\deploy\env.json | ConvertFrom-Json | Select-Object -ExpandProperty "Environment" | Select-Object $env_name
 
-Write-Host "Env Obj"  $envObj
+
 
 New-Item .\pkg -ItemType Directory
 
