@@ -3,8 +3,11 @@ param (
     [Parameter(Mandatory = $true)]
     [string] $env_name
 )
-$env_running= ConvertFrom-SecureString -SecureString $env_name -AsPlainText; 
-Write-Host "Env Obj"  $env_running
+if($env_name -eq "dev"){
+    Write-Host "I am in development"
+}else{
+    Write-Host "I am not in development"
+}
 
 $envObj = Get-Content -Path .\deploy\env.json | ConvertFrom-Json | Select-Object -ExpandProperty "Environment" | Select-Object $env_name
 
