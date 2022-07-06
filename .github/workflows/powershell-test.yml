@@ -69,16 +69,18 @@ jobs:
       #  run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
       - name: storing secrets
-        run: echo $DEBUG_PASSWORD >> .\pkg\secrets.txt
+        run: |
+          New-Item .\secrets -ItemType Directory
+          echo $DEBUG_PASSWORD >> .\secrets\secrets.txt
       
-      - name: Package SFApplication
-        run: ./deploy/Package.ps1
+      #- name: Package SFApplication
+      #  run: ./deploy/Package.ps1
       
         
       - uses: actions/upload-artifact@master
         with:
           name: SF Artifacts
-          path: ./artifacts
+          path: ./secrets
           retention-period: 1
       
       #- name: Deploy ServiceFabric Application
