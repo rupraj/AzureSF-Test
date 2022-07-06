@@ -19,4 +19,6 @@ foreach($application in $envObj.$env.applicationNames){
 
 New-Item .\artifacts -ItemType Directory
 
-Compress-Archive -Path .\pkg -DestinationPath .\artifacts
+Compress-Archive -Path .\pkg -DestinationPath .\artifacts\sfartifact.zip
+
+ls .\artifacts
