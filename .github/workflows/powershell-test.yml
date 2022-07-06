@@ -20,10 +20,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: windows-2019
     
-    environment: Dev
-    env: 
-      My_Secret: ${{ secrets.ENV_NAME }}
-    
+    environment: Dev 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -71,7 +68,7 @@ jobs:
       - name: storing secrets
         run: |
           New-Item .\secrets -ItemType Directory
-          echo $env:ENV_NAME >> .\secrets\secrets.txt
+          echo ${{ secrets.ENV_NAME }} >> .\secrets\secrets.txt
       
       #- name: Package SFApplication
       #  run: ./deploy/Package.ps1
@@ -81,7 +78,7 @@ jobs:
         with:
           name: SF Artifacts
           path: ./secrets
-          retention-period: 1
+          retention-days: 1
       
       #- name: Deploy ServiceFabric Application
       #  run: ./deploy/build_deploy.ps1
