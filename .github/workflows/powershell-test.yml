@@ -6,9 +6,9 @@ name: Powershell-Test
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "RC*.*" ]
+    branches: [ "RC*.*", "main" ]
   pull_request:
-    branches: [ "RC*.*" ]
+    branches: [ "RC*.*", "main" ]
   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -34,7 +34,8 @@ jobs:
         with:
           dotnet-version: |
             3.1.x
-      - run: Write-Host "$env:My_Secret"
+      - run: 
+      
       #- run: ls "C:\Windows\Microsoft.NET\Framework64"
       #- run: dotnet restore .\MySFWebApp8.sln
       
@@ -68,8 +69,12 @@ jobs:
       #- name: Check VS
       #  run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
+      - name: storing secrets
+        run: echo $DEBUG_PASSWORD >> .\pkg\secrets.txt
+      
       - name: Package SFApplication
         run: ./deploy/Package.ps1
+      
         
       - uses: actions/upload-artifact@master
         with:
