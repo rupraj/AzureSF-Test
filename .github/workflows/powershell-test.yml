@@ -65,20 +65,20 @@ jobs:
       #- name: Check VS
       #  run: ls "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
       
-      - name: storing secrets
-        run: |
-          New-Item .\secrets -ItemType Directory
-          echo ${{ secrets.ENV_NAME }} >> .\secrets\secrets.txt
+      #- name: storing secrets
+      #  run: |
+      #    New-Item .\secrets -ItemType Directory
+      #    echo ${{ secrets.ENV_NAME }} >> .\secrets\secrets.txt
       
-      #- name: Package SFApplication
-      #  run: ./deploy/Package.ps1
+      - name: Package SFApplication
+        run: ./deploy/Package.ps1 -env_name ${{ secrets.ENV_NAME }}
       
         
-      - uses: actions/upload-artifact@master
-        with:
-          name: SF Artifacts
-          path: ./secrets
-          retention-days: 1
+      #- uses: actions/upload-artifact@master
+      #  with:
+      #    name: SF Artifacts
+      #    path: ./secrets
+      #    retention-days: 1
       
       #- name: Deploy ServiceFabric Application
       #  run: ./deploy/build_deploy.ps1
