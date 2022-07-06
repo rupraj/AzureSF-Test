@@ -1,4 +1,4 @@
-﻿$env="dev"
+$env="dev"
 $envObj = Get-Content -Path .\deploy\env.json | ConvertFrom-Json | Select-Object -ExpandProperty "Environment" | Select-Object $env
 
 #create pkg folder
