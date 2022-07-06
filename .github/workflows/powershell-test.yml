@@ -71,7 +71,7 @@ jobs:
       - name: storing secrets
         run: |
           New-Item .\secrets -ItemType Directory
-          echo $DEBUG_PASSWORD >> .\secrets\secrets.txt
+          echo $My_Secret >> .\secrets\secrets.txt
       
       #- name: Package SFApplication
       #  run: ./deploy/Package.ps1
