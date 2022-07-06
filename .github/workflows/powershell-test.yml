@@ -74,11 +74,11 @@ jobs:
         run: ./deploy/Package.ps1 -env_name ${{ secrets.ENV_NAME }}
       
         
-      #- uses: actions/upload-artifact@master
-      #  with:
-      #    name: SF Artifacts
-      #    path: ./secrets
-      #    retention-days: 1
+      - uses: actions/upload-artifact@master
+        with:
+          name: SF Artifacts
+          path: ./artifacts
+          retention-days: 1
       
       #- name: Deploy ServiceFabric Application
       #  run: ./deploy/build_deploy.ps1
