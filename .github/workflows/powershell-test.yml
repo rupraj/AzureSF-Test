@@ -34,7 +34,6 @@ jobs:
         with:
           dotnet-version: |
             3.1.x
-      - run: 
       
       #- run: ls "C:\Windows\Microsoft.NET\Framework64"
       #- run: dotnet restore .\MySFWebApp8.sln
