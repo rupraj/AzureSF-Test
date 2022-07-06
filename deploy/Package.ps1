@@ -7,6 +7,8 @@ $env_running= $env_name
 
 $envObj = Get-Content -Path .\deploy\env.json | ConvertFrom-Json | Select-Object -ExpandProperty "Environment" | Select-Object $env_name
 
+Write-Host "Env Obj"  $envObj
+
 New-Item .\pkg -ItemType Directory
 
 Copy-Item .\ApplicationPackageRoot\ApplicationManifest.xml -Destination .\pkg
