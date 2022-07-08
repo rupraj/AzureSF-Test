@@ -31,6 +31,7 @@ jobs:
         with:
           dotnet-version: |
             3.1.x
+            6.0.x
       #- run: Write-Host ${{ secrets.ENV_NAME }}
       #- run: ls "C:\Windows\Microsoft.NET\Framework64"
       #- run: dotnet restore .\MySFWebApp8.sln
