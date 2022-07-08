@@ -74,7 +74,7 @@ jobs:
         
       - uses: actions/upload-artifact@master
         with:
-          name: SF Artifacts
+          name: SF_Artifacts
           path: ./artifacts
           retention-days: 1
       
