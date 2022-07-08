@@ -24,5 +24,5 @@ New-Item .\artifacts -ItemType Directory
 
 Compress-Archive -Path .\pkg -DestinationPath .\artifacts\sfartifact.zip
 
-ls .\artifacts
+ls .\pkg\Publish
 
