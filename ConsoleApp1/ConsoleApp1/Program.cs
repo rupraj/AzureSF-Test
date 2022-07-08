@@ -15,7 +15,7 @@ creds.RemoteCertThumbprints.Add("19959E089090EF03D92934BE673FC6B3A2B9E529");
 
 FabricClient fabricClient = new FabricClient(creds, "svastha-2023.eastus.cloudapp.azure.com:19000");
 //fabricClient.ApplicationManager.UnprovisionApplicationAsync("svasthaType", "1.0.1").Wait();
-fabricClient.ApplicationManager.CopyApplicationPackage("fabric:ImageStore", ".\artifacts\pkg", "MySFWebApp8_v1");
+fabricClient.ApplicationManager.CopyApplicationPackage("fabric:ImageStore", @".\artifacts\pkg", "MySFWebApp8_v1");
 fabricClient.ApplicationManager.ProvisionApplicationAsync("MySFWebApp8_v1").Wait();
 var test = fabricClient.QueryManager.GetApplicationListAsync().Result;
 fabricClient.ApplicationManager.RemoveApplicationPackage("fabric:ImageStore", "MySFWebApp8_v1");
