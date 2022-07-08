@@ -3,7 +3,7 @@ $envObj = Get-Content -Path .\deploy\env.json | ConvertFrom-Json | Select-Object
 
 #create pkg folder
 New-Item .\pkg -ItemType Directory
-New-Item .\pkg\Publish -ItemType Directory
+New-Item .\Publish -ItemType Directory
 
 Copy-Item .\ApplicationPackageRoot\ApplicationManifest.xml -Destination .\pkg
 
@@ -17,18 +17,19 @@ foreach($application in $envObj.$env.applicationNames){
 
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
 }
-dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj -v normal -c Release /p:PublishDir="..\..\pkg\Publish"
+dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj -v normal -c Release /p:PublishDir="..\..\Publish"
 
 Write-Host "Display pkg"
 ls .\pkg
 Write-Host "Display publish"
-ls .\pkg\Publish
+ls .\Publish
 Write-Host "Display MySFApipkg"
 ls .\pkg\MySFApipkg
 
-#Copy-Item .\ConsoleApp1 -Destination .\pkg
-
 New-Item .\artifacts -ItemType Directory
+
+Copy-Item .\Publish -Destination .\artifacts -Recurse
+Copy-Item .\pkg -Destination .\artifacts -Recurse
 
 Compress-Archive -Path .\pkg -DestinationPath .\artifacts\sfartifact.zip
 
