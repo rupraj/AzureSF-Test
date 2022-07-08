@@ -17,7 +17,6 @@ foreach($application in $envObj.$env.applicationNames){
 
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
 }
-dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj -v normal -c Release /p:PublishDir="..\..\Publish"
 
 Write-Host "Display pkg"
 ls .\pkg
@@ -28,7 +27,7 @@ ls .\pkg\MySFApipkg
 
 New-Item .\artifacts -ItemType Directory
 
-Copy-Item .\Publish -Destination .\artifacts -Recurse
+Copy-Item .\ConsoleApp1\ConsoleApp1 -Destination .\artifacts -Recurse
 Copy-Item .\pkg -Destination .\artifacts -Recurse
 
 Compress-Archive -Path .\pkg -DestinationPath .\artifacts\sfartifact.zip
