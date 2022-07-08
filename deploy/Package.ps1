@@ -3,6 +3,7 @@ $envObj = Get-Content -Path .\deploy\env.json | ConvertFrom-Json | Select-Object
 
 #create pkg folder
 New-Item .\pkg -ItemType Directory
+New-Item .\pkg\Publish -ItemType Directory
 
 Copy-Item .\ApplicationPackageRoot\ApplicationManifest.xml -Destination .\pkg
 
@@ -16,8 +17,8 @@ foreach($application in $envObj.$env.applicationNames){
 
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
 }
-
-Copy-Item .\ConsoleApp1 -Destination .\pkg
+dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj --framework netcoreapp3.1 -v normal -c Release /p:PublishDir=".\pkg\Publish"
+#Copy-Item .\ConsoleApp1 -Destination .\pkg
 
 New-Item .\artifacts -ItemType Directory
 
