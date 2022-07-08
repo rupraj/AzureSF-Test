@@ -31,7 +31,7 @@ jobs:
         with:
           dotnet-version: |
             3.1.x
-      - run: Write-Host ${{ secrets.ENV_NAME }}
+      #- run: Write-Host ${{ secrets.ENV_NAME }}
       #- run: ls "C:\Windows\Microsoft.NET\Framework64"
       #- run: dotnet restore .\MySFWebApp8.sln
       
@@ -70,10 +70,27 @@ jobs:
         
       - uses: actions/upload-artifact@master
         with:
-          name: SF Artifacts
+          name: SF_Artifacts
           path: ./artifacts
           retention-period: 1
       
       #- name: Deploy ServiceFabric Application
       #  run: ./deploy/build_deploy.ps1
+  deploy:
+    runs-on: windows-2019
+    needs: build
+    steps:
+      - name: Setup Artifacts folder
+        run: New-Item .\artifacts -ItemType Directory
         
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: SF_Artifacts
+          path: .\artifacts
+      
+      - name: Unzip artifacts
+        run:  Expand-Archive -LiteralPath .\artifacts\sfartifact.Zip -DestinationPath .\artifacts -Force
+      
+      - name: Deploy Artifacts
+        run: ls .\artifacts
