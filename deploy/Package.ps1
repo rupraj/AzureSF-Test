@@ -19,9 +19,12 @@ foreach($application in $envObj.$env.applicationNames){
 }
 dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj -v normal -c Release /p:PublishDir=".\pkg\Publish"
 
-Write-Host "Display publish"
+Write-Host "Display pkg"
 ls .\pkg
-ls .\pkg\publish
+Write-Host "Display publish"
+ls .\pkg\Publish
+Write-Host "Display MySFApipkg"
+ls .\pkg\MySFApipkg
 
 #Copy-Item .\ConsoleApp1 -Destination .\pkg
 
