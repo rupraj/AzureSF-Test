@@ -104,4 +104,6 @@ jobs:
         run:  Expand-Archive -LiteralPath .\artifacts\sfartifact.Zip -DestinationPath .\artifacts -Force
       
       - name: Deploy Artifacts
-        run: dotnet .\artifacts\publish\consoleapp1.dll
+        run: |
+          ls .\artifacts\consoleapp1
+          dotnet run .\artifacts\consoleapp1\consoleapp1.csproj
