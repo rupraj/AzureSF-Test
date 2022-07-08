@@ -18,11 +18,16 @@ foreach($application in $envObj.$env.applicationNames){
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
 }
 dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj -v normal -c Release /p:PublishDir=".\pkg\Publish"
+
+Write-Host "Display publish"
+ls .\pkg
+ls .\pkg\publish
+
 #Copy-Item .\ConsoleApp1 -Destination .\pkg
 
 New-Item .\artifacts -ItemType Directory
 
 Compress-Archive -Path .\pkg -DestinationPath .\artifacts\sfartifact.zip
 
-ls .\pkg\Publish
+
 
