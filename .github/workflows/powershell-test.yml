@@ -106,4 +106,4 @@ jobs:
       - name: Deploy Artifacts
         run: |
           ls .\artifacts\consoleapp1
-          dotnet run .\artifacts\consoleapp1\consoleapp1.csproj
+          dotnet run --project .\artifacts\consoleapp1\consoleapp1.csproj
