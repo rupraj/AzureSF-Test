@@ -18,7 +18,7 @@ foreach($application in $envObj.$env.applicationNames){
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
 }
 
-dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj --framework netcoreapp3.1 -v normal -c Release /p:PublishDir=".\pkg\Publish"
+dotnet publish .\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj -v normal -c Release /p:PublishDir=".\pkg\Publish"
 
 #Copy-Item .\ConsoleApp1 -Destination .\pkg -Recurse
 
