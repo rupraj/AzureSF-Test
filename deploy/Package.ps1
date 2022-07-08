@@ -17,7 +17,7 @@ foreach($application in $envObj.$env.applicationNames){
     dotnet publish .\$application\$application.csproj -o .\pkg\$application"pkg"\Code
 }
 
-Copy-Item .\ConsoleApp1 -Destination .\pkg
+Copy-Item .\ConsoleApp1 -Destination .\pkg -Recurse
 
 New-Item .\artifacts -ItemType Directory
 
