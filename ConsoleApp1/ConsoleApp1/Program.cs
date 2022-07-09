@@ -8,12 +8,12 @@ var creds = new X509Credentials();
 creds.StoreLocation = System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser;
 creds.StoreName = "My";
 creds.FindType = System.Security.Cryptography.X509Certificates.X509FindType.FindByThumbprint;
-creds.FindValue = "19959E089090EF03D92934BE673FC6B3A2B9E529";
-creds.RemoteCommonNames.Add("svastha-2023.eastus.cloudapp.azure.com:19000");
-creds.RemoteCertThumbprints.Add("19959E089090EF03D92934BE673FC6B3A2B9E529");
+creds.FindValue = "D1A4F48927730B07C34D74CAF31D0D97C5542AE9";
+creds.RemoteCommonNames.Add("svastha-2022.eastus.cloudapp.azure.com:19000");
+creds.RemoteCertThumbprints.Add("D1A4F48927730B07C34D74CAF31D0D97C5542AE9");
 
 
-FabricClient fabricClient = new FabricClient(creds, "svastha-2023.eastus.cloudapp.azure.com:19000");
+FabricClient fabricClient = new FabricClient(creds, "svastha-2022.eastus.cloudapp.azure.com:19000");
 //fabricClient.ApplicationManager.UnprovisionApplicationAsync("svasthaType", "1.0.1").Wait();
 fabricClient.ApplicationManager.CopyApplicationPackage("fabric:ImageStore", @".\artifacts\pkg", "MySFWebApp8_v1");
 fabricClient.ApplicationManager.ProvisionApplicationAsync("MySFWebApp8_v1").Wait();
